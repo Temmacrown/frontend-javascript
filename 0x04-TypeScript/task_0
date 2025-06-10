@@ -1,0 +1,53 @@
+interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
+}
+
+const student1: Student = {
+  firstName: "Alice",
+  lastName: "Smith",
+  age: 20,
+  location: "Nairobi"
+};
+
+const student2: Student = {
+  firstName: "Bob",
+  lastName: "Johnson",
+  age: 22,
+  location: "Kampala"
+};
+
+const studentsList: Student[] = [student1, student2];
+
+// Create and style a basic table
+const table = document.createElement("table");
+table.style.border = "1px solid black";
+table.style.borderCollapse = "collapse";
+
+// Table Header
+const headerRow = table.insertRow();
+const th1 = document.createElement("th");
+th1.textContent = "First Name";
+th1.style.border = "1px solid black";
+const th2 = document.createElement("th");
+th2.textContent = "Location";
+th2.style.border = "1px solid black";
+headerRow.appendChild(th1);
+headerRow.appendChild(th2);
+
+// Table Rows
+studentsList.forEach((student) => {
+  const row = table.insertRow();
+  const firstNameCell = row.insertCell();
+  const locationCell = row.insertCell();
+
+  firstNameCell.textContent = student.firstName;
+  locationCell.textContent = student.location;
+
+  firstNameCell.style.border = "1px solid black";
+  locationCell.style.border = "1px solid black";
+});
+
+document.body.appendChild(table);
